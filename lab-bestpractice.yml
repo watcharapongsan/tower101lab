@@ -1,1 +1,16 @@
-tet
+---
+- name: play to setup web server on web1
+  hosts: web1
+  remote_user: root
+  tasks:
+  - name: latest httpd version installed
+     yum:
+        name:
+           - httpd
+        state: latest
+  - name: correct index.html is present
+     copy:
+         content="this is my webserver"  dest=/var/www/html/index.html
+
+  - service:
+        name=httpd  state=started  enabled=true
