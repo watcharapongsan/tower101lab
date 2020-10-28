@@ -14,3 +14,9 @@
 
   - service:
         name=httpd  state=started  enabled=true
+
+  - name: add user
+    command: useradd user01
+    
+    
+    
